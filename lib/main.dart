@@ -6,6 +6,7 @@ import 'package:ricky_and_morty_simple_project/bloc/data_state.dart';
 import 'package:ricky_and_morty_simple_project/data/model/data_model.dart';
 import 'package:ricky_and_morty_simple_project/data/provider/data_provider.dart';
 import 'package:ricky_and_morty_simple_project/data/repository/data_repository.dart';
+import 'package:ricky_and_morty_simple_project/widgets/character_tile.dart';
 import 'package:ricky_and_morty_simple_project/widgets/gridTile.dart';
 
 void main() {
@@ -76,18 +77,24 @@ class _MyHomePageState extends State<MyHomePage> {
               ? const Center(
                   child: Text('No Data Available'),
                 )
-              : GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 200, childAspectRatio: 2),
-                  itemBuilder: (context, index) {
-                    // Provide a valid implementation for the itemBuilder function
-                    widget.dataModel = state.dataModel;
-                    return GridTileWidget(
-                      data: data[index],
-                    );
-                  },
+              : ListView.builder(
                   itemCount: data.length,
-                );
+                  itemBuilder: (context, index) {
+                    widget.dataModel = state.dataModel;
+                    return CharacterTile(data: data[index]);
+                  });
+          // : GridView.builder(
+          //     gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          //         maxCrossAxisExtent: 200, childAspectRatio: 2),
+          //     itemBuilder: (context, index) {
+          //       // Provide a valid implementation for the itemBuilder function
+          //       widget.dataModel = state.dataModel;
+          //       return GridTileWidget(
+          //         data: data[index],
+          //       );
+          //     },
+          //     itemCount: data.length,
+          //   );
         }
 
         return const SizedBox();

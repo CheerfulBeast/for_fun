@@ -11,19 +11,6 @@ class GridTileWidget extends StatelessWidget {
     required this.data,
   });
 
-  // Color colorStatus(String status, BuildContext context) {
-  //   switch (status) {
-  //     case 'ALIVE':
-  //       return Colors.green;
-  //     case 'DEAD':
-  //       return Colors.red;
-  //     case 'UNKNOWN':
-  //       return Colors.blueGrey;
-  //     default:
-  //       return Theme.of(context).colorScheme.onPrimary;
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Card(

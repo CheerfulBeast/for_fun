@@ -106,7 +106,7 @@ class Result {
         "name": name,
         "status": statusValues.reverse[status],
         "species": species,
-        "type": type,
+        "type": type.isEmpty ? type : 'null',
         "gender": genderValues.reverse[gender],
         "origin": origin.toJson(),
         "location": location.toJson(),

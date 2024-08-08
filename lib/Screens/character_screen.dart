@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ricky_and_morty_simple_project/Functions/color_status.dart';
+import 'package:ricky_and_morty_simple_project/Functions/text_slicing.dart';
 import 'package:ricky_and_morty_simple_project/data/model/data_model.dart';
 
 class CharactersScreen extends StatelessWidget {
@@ -25,11 +26,14 @@ class CharactersScreen extends StatelessWidget {
               ),
             ),
             Text(
-              'Status: ${data.status.toString().split('.').last}',
+              'Status: ${textSlicing.slice(data.status.toString())}',
               style: TextStyle(
                   color: ColorStatus().colorStatus(
-                      data.status.toString().split('.').last, context)),
-            )
+                      textSlicing.slice(data.status.toString()), context)),
+            ),
+            Text('Species: ${textSlicing.slice(data.species.toString())}'),
+            Text('Type: ${data.type}'),
+            Text('Gender: ${textSlicing.slice(data.gender.toString())}'),
           ],
         ),
       ),
